@@ -1,25 +1,22 @@
-## Spring Batch + Spring Integration + Spring Integration DSL Example
+## Elaboration of scaling and performance problematic of microservices by finding anagrams
 
-I couldn't find a complete, up to date example so I created one in order to
-learn how to do it.
-I found the documentation and examples confusing, because many use xml, others
-use JavaConfig, others a mix of everything.
-I found the JavaConfig very confusing and difficult to follow.
-I wanted a pure DSL configuration, which is way easier to follow.
+FileImporter
 
-The example is very simple.
-It consists on a sample flow which watches the dropfolder directory for .txt
-files.
-The flow then transforms the message to a FileMessageToJobRequest and then
-passes it to a JobLaunchingMessageHandler and finally prints the JobExecution
-result.
+FileImporter is based on Spring Integration and Spring Batch 
 
-Relevant resources:
+you can start it in two ways:
+please import the project into your intellij IDE
 
-http://docs.spring.io/spring-batch/3.0.x/reference/html/springBatchIntegration.html
+Minimum JDK version to be used - 1.8 (i used JDK 14 AdoptOpen)
 
-http://docs.spring.io/spring-integration/docs/4.3.10.RELEASE/reference/html/
+Start configuration:
+Main Class - com.importer.BatchImporter
+JRE: select JDK 1.8 or higher (i choosed JDK 14 Adoptopen)
+Use Class Main Module: FileImportProcessor
+used heap space maxmium of 700 MB - sufficient also for very lage files
+maven version:  any maven 3.x can be used (used 3.6.3)
 
-https://github.com/spring-projects/spring-integration-java-dsl/wiki/spring-integration-java-dsl-reference
+Alternative:
+use command "mvnw.cmd clean install" (Windows) or "./mvnw clean install" and then start 
+application with "mvnw spring-boot:run"
 
-https://github.com/mminella/SpringBatchWebinar
